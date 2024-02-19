@@ -4,8 +4,12 @@ import (
 	"errors"
 	"strings"
 
+	b64 "encoding/base64"
+
 	"github.com/go-playground/validator/v10"
 )
+
+const charset = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-"
 
 const (
 	// DefaultSeparator is the default separator used to join the URN segments.
@@ -76,6 +80,26 @@ func (z *ZRN) ExactMatch(zrn *ZRN) bool {
 		z.Region == zrn.Region &&
 		z.Identifier == zrn.Identifier &&
 		z.Resource == zrn.Resource
+}
+
+// Encode encodes the ZRN in base64.
+func (z *ZRN) Base64() string {
+	return b64.StdEncoding.EncodeToString(z.Byte())
+}
+
+// Decode decodes the ZRN from base 64.
+func ParseBase64(s string) (*ZRN, error) {
+	decoded, err := b64.StdEncoding.DecodeString(s)
+	if err != nil {
+		return nil, err
+	}
+
+	return Parse(string(decoded))
+}
+
+// Byte returns the byte representation of the ZRN.
+func (z *ZRN) Byte() []byte {
+	return []byte(z.String())
 }
 
 // New returns a new ZRN.
