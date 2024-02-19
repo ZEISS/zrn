@@ -68,3 +68,36 @@ func TestNew(t *testing.T) {
 		})
 	}
 }
+
+func TestMust(t *testing.T) {
+	tests := []struct {
+		desc        string
+		namespace   zrn.Match
+		partition   zrn.Match
+		product     zrn.Match
+		region      zrn.Match
+		identifier  zrn.Match
+		resource    zrn.Match
+		expected    *zrn.ZRN
+		expectedErr bool
+	}{
+		{
+			desc:       "invalid ZRN",
+			namespace:  "",
+			partition:  "vision",
+			product:    "microscopy",
+			region:     "de",
+			identifier: "foo",
+			resource:   "bar",
+			expected:   nil,
+		},
+	}
+
+	for _, test := range tests {
+		t.Run(test.desc, func(t *testing.T) {
+			assert.Panics(t, func() {
+				zrn.Must(test.namespace, test.partition, test.product, test.region, test.identifier, test.resource)
+			})
+		})
+	}
+}

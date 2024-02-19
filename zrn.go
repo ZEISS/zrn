@@ -9,8 +9,6 @@ import (
 	"github.com/go-playground/validator/v10"
 )
 
-const charset = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-"
-
 const (
 	// DefaultSeparator is the default separator used to join the URN segments.
 	DefaultSeparator = ":"
