@@ -3,7 +3,7 @@ module github.com/zeiss/zrn
 go 1.21.7
 
 require (
-	github.com/go-playground/validator/v10 v10.19.0
+	github.com/go-playground/validator/v10 v10.20.0
 	github.com/golang/mock v1.6.0
 	github.com/golangci/golangci-lint v1.57.2
 	github.com/stretchr/testify v1.9.0
