@@ -101,3 +101,47 @@ func TestMust(t *testing.T) {
 		})
 	}
 }
+
+func TestBase64(t *testing.T) {
+	tests := []struct {
+		desc     string
+		input    string
+		expected string
+	}{
+		{
+			desc:     "valid ZRN",
+			input:    "zrn:vision:microscopy:de:foo:bar",
+			expected: "enJuOnZpc2lvbjptaWNyb3Njb3B5OmRlOmZvbzpiYXI=",
+		},
+	}
+
+	for _, test := range tests {
+		t.Run(test.desc, func(t *testing.T) {
+			zrn, err := zrn.Parse(test.input)
+			require.NoError(t, err)
+			assert.Equal(t, test.expected, zrn.Base64())
+		})
+	}
+}
+
+func TestParseBase64(t *testing.T) {
+	tests := []struct {
+		desc     string
+		input    string
+		expected string
+	}{
+		{
+			desc:     "valid ZRN",
+			input:    "enJuOnZpc2lvbjptaWNyb3Njb3B5OmRlOmZvbzpiYXI=",
+			expected: "zrn:vision:microscopy:de:foo:bar",
+		},
+	}
+
+	for _, test := range tests {
+		t.Run(test.desc, func(t *testing.T) {
+			zrn, err := zrn.ParseBase64(test.input)
+			require.NoError(t, err)
+			assert.Equal(t, test.expected, zrn.String())
+		})
+	}
+}
