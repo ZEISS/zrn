@@ -15,6 +15,16 @@ A simple and fast library to read and write ZRNs (Zeiss Resource Names).
 go get github.com/zeiss/zrn
 ```
 
+## Specification
+
+### Format
+
+```
+zrn:partition:product:region:identifier:resource-id
+zrn:partition:product:region:identifier:resource-type/resource-id
+zrn:partition:product:region:identifier:resource-type:resource-id
+```
+
 ## License
 
 [Apache 2.0](/LICENSE)
