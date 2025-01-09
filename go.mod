@@ -1,7 +1,8 @@
 module github.com/zeiss/zrn
 
-go 1.22
-toolchain go1.22.5
+go 1.22.1
+
+toolchain go1.23.4
 
 require (
 	github.com/go-playground/validator/v10 v10.23.0
