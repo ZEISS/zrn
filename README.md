@@ -1,6 +1,6 @@
 # zrn
 
-![Github Action](https://github.com/zeiss/zrn/workflows/main/badge.svg)
+[![Release](https://github.com/ZEISS/zrn/actions/workflows/release.yml/badge.svg)](https://github.com/ZEISS/zrn/actions/workflows/release.yml)
 [![Go Reference](https://pkg.go.dev/badge/github.com/zeiss/zrn.svg)](https://pkg.go.dev/github.com/zeiss/zrn)
 [![Go Report Card](https://goreportcard.com/badge/github.com/zeiss/zrn)](https://goreportcard.com/report/github.com/zeiss/zrn)
 [![Taylor Swift](https://img.shields.io/badge/secured%20by-taylor%20swift-brightgreen.svg)](https://twitter.com/SwiftOnSecurity)
