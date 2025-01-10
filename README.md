@@ -19,7 +19,7 @@ go get github.com/zeiss/zrn
 
 ### Format
 
-```
+```plaintext
 zrn:partition:product:region:identifier:resource-id
 zrn:partition:product:region:identifier:resource-type/resource-id
 zrn:partition:product:region:identifier:resource-type:resource-id
